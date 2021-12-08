@@ -55,7 +55,8 @@ class Command(BaseCommand):
             reader = csv.reader(csvfile)
             articles = []
             for index, row in enumerate(reader):
-                if index != 0 and len(row[4].split(" "))==3:
-                    article = Article(title=row[1], date=parse_date(row[4]), content=row[2], subject=row[3], is_real_news=is_real)
-                    articles.append(article)
+                if(len(row)==5):
+                    if index != 0 and len(row[4].split(" "))==3:
+                        article = Article(title=row[1], date=parse_date(row[4]), content=row[2], subject=row[3], is_real_news=is_real)
+                        articles.append(article)
             Article.objects.bulk_create(articles)
