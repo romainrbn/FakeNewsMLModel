@@ -14,16 +14,16 @@ dataset = tf.keras.utils.get_file("aclImdb_v1", url, untar=True, cache_dir='.', 
 dataset_dir = os.path.join(os.path.dirname(dataset), 'aclImdb')
 
 # Liste des dataset : ['train', 'test', ...]
-os.listdir(dataset_dir)
+ # os.listdir(dataset_dir)
 
 # Liste des fichiers dans le dossier train
 train_dir = os.path.join(dataset_dir, 'train')
-os.listdir(train_dir)
+ # os.listdir(train_dir)
 
 # On print un fichier parmi tous les fichiers dans train
-sample_file = os.path.join(train_dir, 'pos/1181_9.txt')
-with open(sample_file) as f:
-    print(f.read())
+# sample_file = os.path.join(train_dir, 'pos/1181_9.txt')
+# with open(sample_file) as f:
+#     print(f.read())
 
 # Pour préparer le dataset pour la classification, on a besoin de deux dossiers sur le disque
 # Le premier dossier est 'class_a' qui correspond aux avis positif et le deuxieme est 'class_b' qui
