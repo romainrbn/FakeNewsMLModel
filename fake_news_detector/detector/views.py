@@ -23,11 +23,22 @@ def inputView(request):
         form = ArticleForm(request.POST)
         if form.is_valid():
             # get the accuracy rate
-            # trained_model = tf.keras.models.load_model('trained_model.h5')
+            trained_model = tf.keras.models.load_model('/Users/romainrabouan/PycharmProjects/FakeNewsMLModel/fake_news_detector/detector/fakenewsmodel.h5')
             text_input = form.cleaned_data['article_text']
-            # prediction_rate = trained_model.predict(text_input)
-            # context = {"prediction_rate" : prediction_rate}
-            context = {"text_input" : text_input}
+            text_input_array = [text_input]
+
+            with open('/Users/romainrabouan/PycharmProjects/FakeNewsMLModel/fake_news_detector/detector/tokenizer.pickle', 'rb') as handle:
+                tokenizer = pickle.load(handle)
+
+            maxlen = 1000
+            text_input_array = tokenizer.texts_to_sequences(text_input_array)
+            text_input_array = pad_sequences(text_input_array, maxlen=maxlen)
+            print(trained_model.predict(text_input_array)[0][0])
+
+            prediction_rate = trained_model.predict(text_input_array)[0][0]
+            text_result = "La probabilité pour que cet article soit une fake news est de " + str(round((1 - prediction_rate) * 100, 3)) + "%"
+            context = {"text_input" : text_result}
+            #context = {"text_input" : text_input}
             return render(request, 'results.html', context=context)
     else:
         form = ArticleForm()
