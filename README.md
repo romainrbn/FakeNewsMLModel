@@ -2,10 +2,8 @@
 /!\ Ces instructions sont à destination d'un système Windows. Les commandes peuvent varier selon le système d'exploitation. /!\
 
 Comment exécuter le projet : 
-1 - Sommaire
-&nbsp;
-2 - Détails de l'exécution
-&nbsp;
+# 1 - Sommaire
+# 2 - Détails de l'exécution
 
 1 - Sommaire :
 *a) Pré-requis
