@@ -2,15 +2,15 @@
 /!\ Ces instructions sont à destination d'un système Windows. Les commandes peuvent varier selon le système d'exploitation. /!\
 
 Comment exécuter le projet : 
-1 - Sommaire
-2 - Détails de l'exécution
+*1 - Sommaire
+*2 - Détails de l'exécution
 
 1 - Sommaire :
-a) Pré-requis
-b) Installation d'un environnement virtuel Python
-c) Installation des dépendances
-d) Exécution des migrations
-e) Lancement du site web
+*a) Pré-requis
+*b) Installation d'un environnement virtuel Python
+*c) Installation des dépendances
+*d) Exécution des migrations
+*e) Lancement du site web
 
 
 2 - Détail de l'exécution 
@@ -52,3 +52,16 @@ pip install -r requirements.txt
 ``` 
 
 d) Exécution des migrations
+
+La base de donnéee étant relativement petite, nous avons pris la liberté de l'inclure dans le repository git. Il n'y a donc pas de migrations à exécuter.
+
+e) Lancement du site web
+
+Placez-vous à la racine du projet et lancez le serveur : 
+
+```
+cd /fake_news_detector
+python manage.py runserver
+```
+
+Le serveur vous indique sur quel port se trouve le site. Par défaut, l'adresse de ce dernier est : localhost:8000
